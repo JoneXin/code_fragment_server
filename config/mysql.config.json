@@ -1,0 +1,7 @@
+{
+    "database": "code_fragment",
+    "host": "192.168.4.3",
+    "port": 3306,
+    "username": "root",
+    "password": "Leaper@123"
+}

@@ -1,0 +1,22 @@
+version: "0.0.1"
+services:
+  code_fragment_server:
+    image: code_fragment_server:latest
+    container_name: code_fragment_server
+    restart: always
+    # volumes:
+    # - /leaper/test/template/data/logs:/app/lgos
+    ports:
+      - "8888:8888"
+    networks:
+      - leaper
+      # environment:
+      # - RTS_MYSQL_HOST=192.168.5.59
+      # - RTS_MYSQL_PORT=3306
+      # - RTS_MYSQL_USER=root
+      # - RTS_MYSQL_PASSWORD=Leaper@123
+      # - NODE_ENV=production
+
+networks:
+  leaper:
+    external: true
