@@ -11,12 +11,24 @@ services:
     networks:
       - leaper
       # environment:
-      # - RTS_MYSQL_HOST=192.168.5.59
-      # - RTS_MYSQL_PORT=3306
-      # - RTS_MYSQL_USER=root
-      # - RTS_MYSQL_PASSWORD=Leaper@123
-      # - NODE_ENV=production
-
+      - CF_HOST=192.168.5.59
+      - CF_PORT=3306
+      - CF_USERNAME=root
+      - CF_PASSWORD=root
+      - CF_DATABASE=cf_mysql
+      - NODE_ENV=production
+  cf_mysql:
+    image: mysql:5.7
+    container_name: cf_mysql
+    restart: always
+    command: --port 3306 --character-set-server=utf8 --collation-server=utf8_general_ci
+    volumes:
+      - /leaper/code_fragment/code_fragment_server/data/mysql/data:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=code_fragment
+      - MYSQL_ROOT_PASSWORD=root
+    networks:
+      - leaper
 networks:
   leaper:
     external: true

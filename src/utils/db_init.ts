@@ -16,10 +16,10 @@ function getSeqInstance() {
         logging: false,
         query: { raw: true },
         dialectModule: mysql2,
-        host: mysqlConfig.host,
-        port: mysqlConfig.port,
-        username: mysqlConfig.username,
-        password: mysqlConfig.password,
+        host: process.env.CF_HOST || mysqlConfig.host,
+        port: process.env.CF_PORT || mysqlConfig.port,
+        username: process.env.CF_USERNAME || mysqlConfig.username,
+        password: process.env.CF_PASSWORD || mysqlConfig.password,
     });
 }
 
