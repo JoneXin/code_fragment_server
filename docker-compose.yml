@@ -10,7 +10,7 @@ services:
       - "8888:8888"
     networks:
       - leaper
-      # environment:
+    environment:
       - CF_HOST=cf_mysql
       - CF_PORT=3306
       - CF_USERNAME=root
