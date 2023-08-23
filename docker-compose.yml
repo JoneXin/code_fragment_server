@@ -4,8 +4,10 @@ services:
     image: code_fragment_server:latest
     container_name: code_fragment_server
     restart: always
-    # volumes:
-    # - /leaper/test/template/data/logs:/app/lgos
+    volumes:
+    # 挂载容器卷事件与宿主机事件同步
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     ports:
       - "8888:8888"
     networks:
