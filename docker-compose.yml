@@ -8,6 +8,7 @@ services:
     # 挂载容器卷事件与宿主机事件同步
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
+      - /leaper/code_fragment/code_fragment_server/data/logs:/app/logs
     ports:
       - "8888:8888"
     networks:
